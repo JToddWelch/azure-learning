@@ -1,73 +1,90 @@
-# Azure Engineering Portfolio
+# Identity & Governance
 
-Hands-on Microsoft Azure engineering portfolio focused on identity, governance, networking, compute, security, automation, and cloud administration.
+This section documents hands-on Microsoft Entra ID identity and governance work performed in a dedicated Azure lab environment.
 
-This repository documents practical Azure labs built using Microsoft Azure, Microsoft Entra ID, PowerShell, Microsoft Graph, and infrastructure administration tools.
+The goal is to demonstrate practical administration skills including user provisioning, privileged-role management, least-privilege design, Microsoft Graph PowerShell, authentication security, and identity troubleshooting.
 
-## Portfolio Areas
+## Current Lab
 
-| Area | Status | Topics |
-|---|---|---|
-| [Identity & Governance](01-identity-governance/) | In Progress | Entra ID, users, groups, administrative roles, MFA |
-| [Azure RBAC](02-rbac/) | Planned | Role assignments, least privilege, scopes |
-| [Networking](03-networking/) | Planned | VNets, subnets, NSGs, DNS, routing |
-| [Compute](04-compute/) | Planned | Virtual machines, availability, administration |
-| [Storage](05-storage/) | Planned | Storage accounts, redundancy, access control |
-| [Monitoring](06-monitoring/) | Planned | Azure Monitor, Log Analytics, alerts |
-| [Security](07-security/) | Planned | Identity security, Defender, Key Vault |
+### Microsoft Entra ID Tenant Setup
 
-## Current Project
+The first project establishes the identity foundation for the Azure lab.
 
-### Microsoft Entra Identity & Governance
+Work completed includes:
 
-Building a cloud identity environment using a dedicated Microsoft Entra tenant and Azure subscription.
+- Reviewed the existing Microsoft Entra tenant
+- Created cloud-native Entra identities
+- Established a dedicated tenant administrator
+- Assigned and verified Microsoft Entra directory roles
+- Separated administrative and normal identities
+- Used Microsoft Graph PowerShell for identity administration
+- Troubleshot Graph authorization and role-assignment issues
+- Prepared privileged identities for MFA and additional security controls
 
-Current work includes:
+[View the full Entra ID setup case study](entra-id-setup.md)
 
-- Cloud-native Entra user administration
-- Dedicated administrative identities
-- Microsoft Graph PowerShell
-- Entra directory role assignments
-- Global Administrator configuration
-- Least-privilege account design
-- MFA and tenant security configuration
-- Custom domain integration
+## PowerShell Automation
 
-[View the Identity & Governance project](01-identity-governance/)
+Reusable PowerShell scripts developed during this project:
+
+### Create Entra Users
+
+[`create-entra-users.ps1`](powershell/create-entra-users.ps1)
+
+Creates cloud-native Microsoft Entra users while checking for existing accounts and requiring secure temporary-password handling.
+
+### Assign Directory Roles
+
+[`assign-directory-roles.ps1`](powershell/assign-directory-roles.ps1)
+
+Assigns Microsoft Entra directory roles to users while checking for existing assignments.
+
+### Verify Directory Roles
+
+[`verify-directory-roles.ps1`](powershell/verify-directory-roles.ps1)
+
+Retrieves and validates Microsoft Entra directory-role assignments and resolves role IDs into readable role names.
+
+## Identity Design
+
+The lab separates identities based on administrative purpose.
+
+| Identity Type | Purpose |
+|---|---|
+| Tenant Administrator | Dedicated Microsoft Entra administration |
+| Cloud Administrator | Azure infrastructure administration |
+| Finance Reader | Least-privilege testing |
+| App Owner | Application and service-principal testing |
+| External Account | Backup administrative access |
+
+This structure is intended to support least privilege and separation of duties.
 
 ## Technologies
 
 - Microsoft Azure
 - Microsoft Entra ID
-- Azure PowerShell
-- Microsoft Graph PowerShell
+- Microsoft Graph
+- Microsoft Graph PowerShell SDK
+- Azure Cloud Shell
+- PowerShell 7
 - Git
 - GitHub
-- PowerShell 7
-- Windows
-- Linux
 
-## Lab Philosophy
+## Security Practices
 
-The goal of this repository is not simply to document completed tutorials. Each project is designed to demonstrate practical cloud administration skills, including:
+The lab incorporates:
 
-- Identity and access management
-- Least-privilege security
-- Infrastructure configuration
-- Automation
-- Troubleshooting
-- Documentation
-- Operational decision-making
+- Dedicated privileged identities
+- Separation of administrative and everyday accounts
+- Least-privilege testing
+- MFA for privileged accounts
+- Role verification before privilege changes
+- Sanitized public documentation
+- No credentials or secrets stored in source code
 
-## Repository Structure
+## Screenshots
+
+Supporting screenshots are stored in:
 
 ```text
-azure-learning/
-├── 01-identity-governance/
-├── 02-rbac/
-├── 03-networking/
-├── 04-compute/
-├── 05-storage/
-├── 06-monitoring/
-├── 07-security/
-└── architecture/
+screenshots/
