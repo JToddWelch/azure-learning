@@ -1,63 +1,70 @@
-# Identity & Governance
+# Azure Engineering Portfolio
 
-This section documents hands-on Microsoft Entra ID identity and governance work performed in a dedicated Azure lab environment.
+Hands-on Microsoft Azure engineering portfolio focused on identity, governance, role-based access control, networking, compute, storage, monitoring, security, and PowerShell automation.
 
-The goal is to demonstrate practical administration skills including user provisioning, privileged-role management, least-privilege design, Microsoft Graph PowerShell, authentication security, and identity troubleshooting.
+This repository documents practical Azure labs built in a dedicated Microsoft Azure environment. The goal is to demonstrate real administration, troubleshooting, security, automation, and documentation skills rather than simply completing tutorials.
 
-## Current Lab
+---
 
-### Microsoft Entra ID Tenant Setup
+## Portfolio Status
 
-The first project establishes the identity foundation for the Azure lab.
+| Area | Status | Focus |
+|---|---|---|
+| [Identity & Governance](01-identity-governance/) | In Progress | Microsoft Entra ID, users, directory roles, Graph PowerShell, Security Defaults |
+| [Azure RBAC](02-rbac/) | Next | Azure role assignments, scopes, least privilege |
+| [Networking](03-networking/) | Planned | VNets, subnets, NSGs, DNS, routing |
+| [Compute](04-compute/) | Planned | Virtual machines, administration, availability |
+| [Storage](05-storage/) | Planned | Storage accounts, redundancy, access control |
+| [Monitoring](06-monitoring/) | Planned | Azure Monitor, Log Analytics, alerts |
+| [Security](07-security/) | Planned | Defender for Cloud, Key Vault, identity security |
+
+---
+
+## Current Project
+
+### Microsoft Entra ID — Identity & Governance
+
+The first phase of the lab establishes the identity and administrative foundation for the Azure environment.
 
 Work completed includes:
 
-- Reviewed the existing Microsoft Entra tenant
-- Created cloud-native Entra identities
+- Created cloud-native Microsoft Entra identities
 - Established a dedicated tenant administrator
+- Separated privileged and standard identities
 - Assigned and verified Microsoft Entra directory roles
-- Separated administrative and normal identities
 - Used Microsoft Graph PowerShell for identity administration
-- Troubleshot Graph authorization and role-assignment issues
-- Prepared privileged identities for MFA and additional security controls
+- Automated user creation and directory-role management
+- Implemented Microsoft Entra Security Defaults
+- Documented troubleshooting and authorization issues
+- Created sanitized configuration evidence for GitHub
 
-[View the full Entra ID setup case study](entra-id-setup.md)
+MFA registration for the dedicated privileged administrator remains a planned security-hardening task.
+
+[View the Identity & Governance project](01-identity-governance/)
+
+---
 
 ## PowerShell Automation
 
-Reusable PowerShell scripts developed during this project:
+The portfolio includes reusable PowerShell automation for Microsoft Entra administration.
 
-### Create Entra Users
+Current scripts include:
 
-[`create-entra-users.ps1`](powershell/create-entra-users.ps1)
+- [`create-entra-users.ps1`](01-identity-governance/powershell/create-entra-users.ps1)
+- [`assign-directory-roles.ps1`](01-identity-governance/powershell/assign-directory-roles.ps1)
+- [`verify-directory-roles.ps1`](01-identity-governance/powershell/verify-directory-roles.ps1)
 
-Creates cloud-native Microsoft Entra users while checking for existing accounts and requiring secure temporary-password handling.
+The scripts demonstrate:
 
-### Assign Directory Roles
+- Microsoft Graph authentication
+- Secure user provisioning
+- Existing-object validation
+- Directory-role assignment
+- Role verification
+- Error handling
+- Least-privilege administration concepts
 
-[`assign-directory-roles.ps1`](powershell/assign-directory-roles.ps1)
-
-Assigns Microsoft Entra directory roles to users while checking for existing assignments.
-
-### Verify Directory Roles
-
-[`verify-directory-roles.ps1`](powershell/verify-directory-roles.ps1)
-
-Retrieves and validates Microsoft Entra directory-role assignments and resolves role IDs into readable role names.
-
-## Identity Design
-
-The lab separates identities based on administrative purpose.
-
-| Identity Type | Purpose |
-|---|---|
-| Tenant Administrator | Dedicated Microsoft Entra administration |
-| Cloud Administrator | Azure infrastructure administration |
-| Finance Reader | Least-privilege testing |
-| App Owner | Application and service-principal testing |
-| External Account | Backup administrative access |
-
-This structure is intended to support least privilege and separation of duties.
+---
 
 ## Technologies
 
@@ -69,22 +76,37 @@ This structure is intended to support least privilege and separation of duties.
 - PowerShell 7
 - Git
 - GitHub
+- Windows
+- Linux
 
-## Security Practices
+---
 
-The lab incorporates:
-
-- Dedicated privileged identities
-- Separation of administrative and everyday accounts
-- Least-privilege testing
-- MFA for privileged accounts
-- Role verification before privilege changes
-- Sanitized public documentation
-- No credentials or secrets stored in source code
-
-## Screenshots
-
-Supporting screenshots are stored in:
+## Repository Structure
 
 ```text
-screenshots/
+azure-learning/
+├── 01-identity-governance/
+│   ├── powershell/
+│   ├── screenshots/
+│   ├── entra-id-setup.md
+│   └── README.md
+│
+├── 02-rbac/
+│   └── README.md
+│
+├── 03-networking/
+│   └── README.md
+│
+├── 04-compute/
+│   └── README.md
+│
+├── 05-storage/
+│   └── README.md
+│
+├── 06-monitoring/
+│   └── README.md
+│
+├── 07-security/
+│   └── README.md
+│
+└── README.md
