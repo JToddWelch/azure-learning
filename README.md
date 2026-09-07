@@ -115,4 +115,60 @@ azure-learning/
 ---
 
 ## Engineering Approach
-...
+Each lab is designed to demonstrate more than successful deployment.
+
+Projects document:
+
+- Architecture and design decisions
+- Identity and access control
+- PowerShell automation
+- Security considerations
+- Troubleshooting
+- Verification
+- Lessons learned
+- Sanitized implementation evidence
+
+The objective is to build an Azure environment that can be explained, reproduced, secured, and operated.
+
+---
+
+## Security and Public Documentation
+
+This is a public portfolio repository.
+
+Sensitive information is intentionally excluded or redacted, including:
+
+- Tenant IDs
+- Subscription IDs
+- Object IDs
+- Passwords
+- Authentication codes
+- Access tokens
+- Client secrets
+- Storage keys
+- Recovery codes
+- MFA QR codes
+
+Examples use sanitized tenant names and identifiers where appropriate.
+
+---
+
+## Roadmap
+
+The portfolio is being developed in the following sequence:
+
+**Identity & Governance → Azure RBAC → Networking → Compute → Storage → Monitoring → Security**
+
+Each section will include configuration documentation, PowerShell where appropriate, troubleshooting notes, and sanitized evidence of implementation.
+
+---
+
+## Portfolio
+
+**GitHub:** [JToddWelch](https://github.com/JToddWelch)  
+**Website:** [jtoddwelch.com](https://jtoddwelch.com)  
+**LinkedIn:** [Todd Welch](https://www.linkedin.com/in/jtoddwelch)
+
+---
+
+**Secure. Automated. Documented.**
